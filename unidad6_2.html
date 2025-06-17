@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>6.2 Resolución de problemas</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .feedback {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    .correct {
+      color: green;
+    }
+    .incorrect {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <main class="contenido">
+    <h1>6.2 Resolución de Problemas</h1>
+
+    <section>
+      <p>En esta unidad se aborda la aplicación práctica de los conceptos estudiados a través de la resolución de problemas químicos. Se presentarán ejercicios de opción múltiple, problemas de balanceo, y situaciones reales para aplicar el conocimiento.</p>
+    </section>
+
+    <section>
+      <h2>Ejercicios de opción múltiple</h2>
+      <form id="quiz-form">
+        <p><strong>1. ¿Cuál es el coeficiente estequiométrico correcto para el oxígeno en la reacción de combustión del propano?</strong><br>
+        C<sub>3</sub>H<sub>8</sub> + ? O<sub>2</sub> → CO<sub>2</sub> + H<sub>2</sub>O</p>
+        <label><input type="radio" name="q1" value="a"> 3</label><br>
+        <label><input type="radio" name="q1" value="b"> 5</label><br>
+        <label><input type="radio" name="q1" value="c"> 8</label><br>
+        <div id="feedback-q1" class="feedback"></div>
+
+        <p><strong>2. ¿Qué ley química fundamenta el balanceo de ecuaciones?</strong></p>
+        <label><input type="radio" name="q2" value="a"> Ley de conservación de la masa</label><br>
+        <label><input type="radio" name="q2" value="b"> Ley de los gases ideales</label><br>
+        <label><input type="radio" name="q2" value="c"> Ley de la termodinámica</label><br>
+        <div id="feedback-q2" class="feedback"></div>
+
+        <p><strong>3. ¿Cuál es el producto principal de la reacción entre un ácido y una base?</strong></p>
+        <label><input type="radio" name="q3" value="a"> Sal y agua</label><br>
+        <label><input type="radio" name="q3" value="b"> Gas hidrógeno</label><br>
+        <label><input type="radio" name="q3" value="c"> Oxígeno</label><br>
+        <div id="feedback-q3" class="feedback"></div>
+
+        <br>
+        <button type="submit">Revisar respuestas</button>
+        <div id="resultado"></div>
+      </form>
+    </section>
+
+    <section>
+      <h2>Problemas para resolver</h2>
+      <ol>
+        <li>
+          <strong>Balancea la siguiente ecuación química:</strong><br>
+          C<sub>3</sub>H<sub>8</sub> + O<sub>2</sub> → CO<sub>2</sub> + H<sub>2</sub>O<br>
+          <em>Respuesta esperada:</em> 1 C<sub>3</sub>H<sub>8</sub> + 5 O<sub>2</sub> → 3 CO<sub>2</sub> + 4 H<sub>2</sub>O
+        </li>
+        <li>
+          <strong>Calcula la masa de dióxido de carbono (CO<sub>2</sub>) producido cuando se queman 44 g de metano (CH<sub>4</sub>).</strong><br>
+          <em>Datos:</em> Masa molar CH<sub>4</sub> = 16 g/mol, CO<sub>2</sub> = 44 g/mol.<br>
+          <em>Respuesta esperada:</em> 121 g CO<sub>2</sub>
+        </li>
+        <li>
+          <strong>Usando la ley de los gases ideales, calcula el volumen que ocupa 2 moles de gas a 1 atm y 273 K.</strong><br>
+          <em>Respuesta esperada:</em> 44.8 litros
+        </li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Actividad adicional: Análisis y explicación</h2>
+      <p><strong>Contesta brevemente:</strong></p>
+      <ol>
+        <li>¿Por qué es importante balancear correctamente una ecuación química?</li>
+        <li>Menciona un ejemplo cotidiano donde se pueda observar una reacción química y explica brevemente qué tipo de reacción es.</li>
+      </ol>
+    </section>
+
+    <audio id="correcto" src="Respuesta Correcta.mp3"></audio>
+    <audio id="incorrecto" src="RESPUESTA INCORRECTA.mp3"></audio>
+
+    <script>
+      const form = document.getElementById('quiz-form');
+      const resultado = document.getElementById('resultado');
+      const correcto = document.getElementById('correcto');
+      const incorrecto = document.getElementById('incorrecto');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Validar que todas las preguntas estén contestadas
+        if (!form.q1.value || !form.q2.value || !form.q3.value) {
+          alert("Por favor responde todas las preguntas antes de enviar.");
+          return;
+        }
+
+        // Respuestas correctas
+        const respuestasCorrectas = {
+          q1: 'b',
+          q2: 'a',
+          q3: 'a'
+        };
+
+        let score = 0;
+
+        // Feedback individual por pregunta
+        ['q1', 'q2', 'q3'].forEach(q => {
+          const selected = form[q].value;
+          const feedbackDiv = document.getElementById(`feedback-${q}`);
+          if (selected === respuestasCorrectas[q]) {
+            feedbackDiv.textContent = "Respuesta correcta";
+            feedbackDiv.className = "feedback correct";
+            score++;
+          } else {
+            feedbackDiv.textContent = "Respuesta incorrecta";
+            feedbackDiv.className = "feedback incorrect";
+          }
+        });
+
+        // Resultado general
+        resultado.innerHTML = `<p>Respuestas correctas: ${score} de 3</p>`;
+
+        if (score === 3) {
+          correcto.play();
+          resultado.innerHTML += '<p><strong>¡Excelente! Has resuelto correctamente todos los ejercicios.</strong></p>';
+        } else {
+          incorrecto.play();
+          resultado.innerHTML += '<p><strong>Repasa los temas y vuelve a intentarlo.</strong></p>';
+        }
+      });
+    </script>
+  </main>
+</body>
+</html>
+  

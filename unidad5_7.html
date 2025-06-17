@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>5.7 Aplicaciones y ejemplos en reacciones químicas gaseosas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="contenido">
+    <h1>5.7 Aplicaciones y ejemplos en reacciones químicas gaseosas</h1>
+
+    <section>
+      <h2>Aplicaciones de los gases en reacciones químicas</h2>
+      <p>
+        Las reacciones químicas que involucran gases son fundamentales en diversas áreas, como la industria, el medio ambiente y la vida cotidiana. Aquí algunos ejemplos:
+      </p>
+      <ul>
+        <li><strong>Combustión:</strong> El oxígeno reacciona con combustibles como el metano para liberar energía.</li>
+        <li><strong>Fotosíntesis y respiración celular:</strong> Procesos vitales que involucran gases como CO<sub>2</sub> y O<sub>2</sub>.</li>
+        <li><strong>Industria química:</strong> Producción de amoníaco (NH<sub>3</sub>) mediante el proceso de Haber.</li>
+        <li><strong>Medicina:</strong> Uso de gases anestésicos y oxígeno en hospitales.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Ejemplo práctico</h2>
+      <p>
+        En una combustión completa de metano (CH<sub>4</sub>) con oxígeno (O<sub>2</sub>), la ecuación balanceada es:
+      </p>
+      <p style="text-align: center;"><strong>CH<sub>4</sub> + 2O<sub>2</sub> → CO<sub>2</sub> + 2H<sub>2</sub>O</strong></p>
+      <p>
+        Si se queman 5 moles de metano, ¿cuántos moles de CO<sub>2</sub> se producen?
+      </p>
+      <p>Respuesta: 5 moles de CO<sub>2</sub> (relación 1:1 en la ecuación).</p>
+    </section>
+
+    <section>
+      <h2>Ejercicio interactivo</h2>
+      <form id="quiz-form">
+        <p><strong>1. ¿Qué gas se consume en una combustión?</strong></p>
+        <label><input type="radio" name="q1" value="a"> Dióxido de carbono</label><br>
+        <label><input type="radio" name="q1" value="b"> Oxígeno</label><br>
+        <label><input type="radio" name="q1" value="c"> Nitrógeno</label><br>
+
+        <p><strong>2. En el proceso de Haber, ¿qué gases se combinan para formar amoníaco?</strong></p>
+        <label><input type="radio" name="q2" value="a"> N<sub>2</sub> y H<sub>2</sub></label><br>
+        <label><input type="radio" name="q2" value="b"> H<sub>2</sub> y O<sub>2</sub></label><br>
+        <label><input type="radio" name="q2" value="c"> CO<sub>2</sub> y O<sub>2</sub></label><br>
+
+        <br>
+        <button type="submit">Revisar respuestas</button>
+        <div id="resultado"></div>
+      </form>
+    </section>
+
+    <audio id="correcto" src="Respuesta Correcta.mp3"></audio>
+    <audio id="incorrecto" src="RESPUESTA INCORRECTA.mp3"></audio>
+
+    <script>
+      const form = document.getElementById('quiz-form');
+      const resultado = document.getElementById('resultado');
+      const correcto = document.getElementById('correcto');
+      const incorrecto = document.getElementById('incorrecto');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        let score = 0;
+
+        if (form.q1.value === 'b') score++;
+        if (form.q2.value === 'a') score++;
+
+        resultado.innerHTML = `<p>Respuestas correctas: ${score}/2</p>`;
+
+        if (score === 2) {
+          correcto.play();
+          resultado.innerHTML += '<p><strong>¡Muy bien!</strong></p>';
+        } else {
+          incorrecto.play();
+          resultado.innerHTML += '<p><strong>Repasa los conceptos sobre gases.</strong></p>';
+        }
+      });
+    </script>
+  </main>
+</body>
+</html>

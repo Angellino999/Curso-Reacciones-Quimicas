@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>6.1 Ejercicios integradores</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="contenido">
+    <h1>6.1 Ejercicios Integradores</h1>
+
+    <section>
+      <p>En esta sección se presentan ejercicios que combinan los temas estudiados en todas las unidades del curso de Reacciones Químicas. Es importante aplicar tanto el conocimiento teórico como práctico en cada caso.</p>
+    </section>
+
+    <section>
+      <h2>Ejercicios de opción múltiple</h2>
+      <form id="quiz-form">
+        <p><strong>1. ¿Cuál de las siguientes es una evidencia clara de que ocurrió una reacción química?</strong></p>
+        <label><input type="radio" name="q1" value="a"> Cambio de estado físico</label><br>
+        <label><input type="radio" name="q1" value="b"> Cambio de color inesperado</label><br>
+        <label><input type="radio" name="q1" value="c"> Evaporación</label><br>
+
+        <p><strong>2. ¿Qué tipo de reacción es la siguiente?: Zn + 2HCl → ZnCl<sub>2</sub> + H<sub>2</sub></strong></p>
+        <label><input type="radio" name="q2" value="a"> Combustión</label><br>
+        <label><input type="radio" name="q2" value="b"> Desplazamiento simple</label><br>
+        <label><input type="radio" name="q2" value="c"> Doble desplazamiento</label><br>
+
+        <p><strong>3. ¿Qué ley permite balancear ecuaciones químicas?</strong></p>
+        <label><input type="radio" name="q3" value="a"> Ley de conservación de la energía</label><br>
+        <label><input type="radio" name="q3" value="b"> Ley de conservación de la masa</label><br>
+        <label><input type="radio" name="q3" value="c"> Ley de los gases ideales</label><br>
+
+        <p><strong>4. ¿Cuál es el producto de la siguiente reacción ácido-base?: HCl + NaOH → ?</strong></p>
+        <label><input type="radio" name="q4" value="a"> H<sub>2</sub>O + NaCl</label><br>
+        <label><input type="radio" name="q4" value="b"> H<sub>2</sub> + NaCl</label><br>
+        <label><input type="radio" name="q4" value="c"> H<sub>2</sub>O + HCl</label><br>
+
+        <p><strong>5. Según la Ley de Boyle, ¿qué ocurre con el volumen si la presión aumenta (manteniendo temperatura constante)?</strong></p>
+        <label><input type="radio" name="q5" value="a"> Aumenta</label><br>
+        <label><input type="radio" name="q5" value="b"> Permanece constante</label><br>
+        <label><input type="radio" name="q5" value="c"> Disminuye</label><br>
+
+        <br>
+        <button type="submit">Revisar respuestas</button>
+        <div id="resultado"></div>
+      </form>
+    </section>
+
+    <section>
+      <h2>Problemas para resolver</h2>
+      <ol>
+        <li>
+          <strong>Balancea la siguiente ecuación química:</strong><br>
+          C<sub>3</sub>H<sub>8</sub> + O<sub>2</sub> → CO<sub>2</sub> + H<sub>2</sub>O<br>
+          <em>Respuesta esperada:</em> 1 C<sub>3</sub>H<sub>8</sub> + 5 O<sub>2</sub> → 3 CO<sub>2</sub> + 4 H<sub>2</sub>O
+        </li>
+        <li>
+          <strong>Calcula el volumen de gas (en L) que ocuparán 2 moles de un gas ideal a 1 atm y 273 K usando la ley de los gases ideales.</strong><br>
+          <em>Respuesta esperada:</em> 44.8 L (utilizando R = 0.082 atm·L/mol·K)
+        </li>
+        <li>
+          <strong>Clasifica la siguiente reacción como endotérmica o exotérmica:</strong><br>
+          2H<sub>2</sub> + O<sub>2</sub> → 2H<sub>2</sub>O + energía<br>
+          <em>Respuesta esperada:</em> Exotérmica
+        </li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Actividad adicional: Investigación y análisis</h2>
+      <p><strong>Investiga y responde las siguientes preguntas con una breve explicación (máximo 2-3 líneas):</strong></p>
+      <ol>
+        <li>¿Qué importancia tienen las reacciones químicas en la industria farmacéutica?</li>
+        <li>Menciona un ejemplo real de una reacción química en el medio ambiente y su impacto.</li>
+        <li>Explica cómo las leyes de los gases se aplican en los globos meteorológicos.</li>
+      </ol>
+    </section>
+
+    <audio id="correcto" src="Respuesta Correcta.mp3"></audio>
+    <audio id="incorrecto" src="RESPUESTA INCORRECTA.mp3"></audio>
+
+    <script>
+      const form = document.getElementById('quiz-form');
+      const resultado = document.getElementById('resultado');
+      const correcto = document.getElementById('correcto');
+      const incorrecto = document.getElementById('incorrecto');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        let score = 0;
+
+        if (form.q1.value === 'b') score++;
+        if (form.q2.value === 'b') score++;
+        if (form.q3.value === 'b') score++;
+        if (form.q4.value === 'a') score++;
+        if (form.q5.value === 'c') score++;
+
+        resultado.innerHTML = `<p>Respuestas correctas: ${score}/5</p>`;
+
+        if (score === 5) {
+          correcto.play();
+          resultado.innerHTML += '<p><strong>¡Excelente trabajo! Has integrado correctamente los conceptos.</strong></p>';
+        } else {
+          incorrecto.play();
+          resultado.innerHTML += '<p><strong>Repasa los temas en los que tuviste errores.</strong></p>';
+        }
+      });
+    </script>
+  </main>
+</body>
+</html>
+  

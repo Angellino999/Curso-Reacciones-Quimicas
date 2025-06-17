@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>3.3 Ejercicios prácticos en balanceo - Curso de Reacciones Químicas</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #114b4b;
+      background: #f0f8f8;
+      margin: 20px;
+      padding: 20px 40px;
+    }
+    h1 {
+      color: #0a3d3d;
+      border-bottom: 3px solid #148f77;
+      padding-bottom: 8px;
+      margin-bottom: 25px;
+      font-weight: 700;
+    }
+    p, ul {
+      font-size: 1.1em;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    ul {
+      padding-left: 20px;
+      color: #166f6f;
+      list-style-type: disc;
+    }
+    strong {
+      color: #0a3d3d;
+    }
+    .example {
+      background-color: #d1f0ec;
+      border-left: 6px solid #148f77;
+      margin: 20px 0;
+      padding: 10px 15px;
+      font-style: italic;
+    }
+    .exercise-section {
+      margin-top: 30px;
+      background: #def6f1;
+      padding: 20px;
+      border-radius: 12px;
+      border: 2px solid #148f77;
+      box-shadow: 0 0 12px rgba(20, 143, 119, 0.3);
+    }
+    .exercise-section h2 {
+      margin-top: 0;
+      color: #0a4a4a;
+      font-weight: 700;
+    }
+    label {
+      font-weight: 600;
+      color: #0b5549;
+      display: block;
+      margin: 15px 0 6px;
+      font-size: 1.05em;
+    }
+    .options {
+      margin-bottom: 20px;
+    }
+    .options label {
+      font-weight: normal;
+      margin-right: 20px;
+      cursor: pointer;
+    }
+    button {
+      background-color: #0e6655;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1.1em;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0a4a44;
+    }
+    .feedback {
+      margin-top: 18px;
+      padding: 14px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1.15em;
+      display: none;
+      max-width: 100%;
+    }
+    .feedback.correct {
+      background-color: #c3f4d1;
+      color: #256a33;
+      border: 2px solid #1b8a3e;
+    }
+    .feedback.incorrect {
+      background-color: #f8d7da;
+      color: #842029;
+      border: 2px solid #d9534f;
+    }
+    footer {
+      margin-top: 40px;
+    }
+    .back-link {
+      display: inline-block;
+      font-weight: 700;
+      color: #148f77;
+      text-decoration: none;
+      font-size: 1.1em;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.3s ease, color 0.3s ease;
+    }
+    .back-link:hover {
+      border-color: #0e6655;
+      color: #0e6655;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Unidad 3.3 - Ejercicios prácticos en balanceo</h1>
+
+  <p>
+    Para dominar el balanceo de ecuaciones químicas, es esencial practicar con diferentes tipos de reacciones. Aquí te presentamos ejercicios prácticos con distintos niveles de dificultad para que refuerces tus habilidades.
+  </p>
+
+  <p>
+    Recuerda seguir estos pasos básicos:
+  </p>
+  <ul>
+    <li>Identificar los reactivos y productos.</li>
+    <li>Contar el número de átomos de cada elemento en ambos lados.</li>
+    <li>Ajustar coeficientes para equilibrar los átomos de cada elemento.</li>
+    <li>Verificar que todos los elementos estén balanceados.</li>
+  </ul>
+
+  <div class="example">
+    <strong>Ejemplo:</strong><br />
+    Balancea la reacción:<br />
+    <code>Al + O₂ → Al₂O₃</code><br />
+    Paso 1: Balancear Al<br />
+    4 Al + O₂ → 2 Al₂O₃<br />
+    Paso 2: Balancear O<br />
+    4 Al + 3 O₂ → 2 Al₂O₃<br />
+    Así la ecuación queda balanceada.
+  </div>
+
+  <section class="exercise-section">
+    <h2>Ejercicios cerrados</h2>
+    <form id="quizForm">
+
+      <label>1. ¿Cuál es el coeficiente que balancea el oxígeno en la reacción <code>C₂H₆ + O₂ → CO₂ + H₂O</code>?</label>
+      <div class="options">
+        <label><input type="radio" name="q1" value="a" /> 3</label>
+        <label><input type="radio" name="q1" value="b" /> 7/2</label>
+        <label><input type="radio" name="q1" value="c" /> 2</label>
+      </div>
+
+      <label>2. Para balancear la reacción <code>Fe + O₂ → Fe₂O₃</code>, ¿cuántos moles de Fe se necesitan?</label>
+      <div class="options">
+        <label><input type="radio" name="q2" value="a" /> 4</label>
+        <label><input type="radio" name="q2" value="b" /> 2</label>
+        <label><input type="radio" name="q2" value="c" /> 3</label>
+      </div>
+
+      <label>3. En la ecuación balanceada de <code>H₂ + Cl₂ → HCl</code>, ¿cuál es el coeficiente delante de HCl?</label>
+      <div class="options">
+        <label><input type="radio" name="q3" value="a" /> 2</label>
+        <label><input type="radio" name="q3" value="b" /> 1</label>
+        <label><input type="radio" name="q3" value="c" /> 3</label>
+      </div>
+
+      <label>4. ¿Qué método es más eficiente para balancear ecuaciones complejas con varios elementos?</label>
+      <div class="options">
+        <label><input type="radio" name="q4" value="a" /> Método por tanteo</label>
+        <label><input type="radio" name="q4" value="b" /> Método ion-electrón</label>
+        <label><input type="radio" name="q4" value="c" /> Método algebraico</label>
+      </div>
+
+      <button type="button" id="submitBtn">Revisar respuestas</button>
+    </form>
+
+    <div id="feedback" class="feedback"></div>
+  </section>
+
+  <footer>
+    <a href="index.html" class="back-link">← Volver al índice</a>
+  </footer>
+
+  <script>
+    const submitBtn = document.getElementById('submitBtn');
+    const feedback = document.getElementById('feedback');
+
+    submitBtn.addEventListener('click', () => {
+      const q1 = document.querySelector('input[name="q1"]:checked');
+      const q2 = document.querySelector('input[name="q2"]:checked');
+      const q3 = document.querySelector('input[name="q3"]:checked');
+      const q4 = document.querySelector('input[name="q4"]:checked');
+
+      if (!q1 || !q2 || !q3 || !q4) {
+        feedback.textContent = "Por favor, responde todas las preguntas.";
+        feedback.className = "feedback incorrect";
+        feedback.style.display = "block";
+        return;
+      }
+
+      let score = 0;
+      if (q1.value === 'b') score++;
+      if (q2.value === 'a') score++;
+      if (q3.value === 'a') score++;
+      if (q4.value === 'c') score++;
+
+      if (score === 4) {
+        feedback.textContent = `¡Muy bien! Has respondido ${score} de 4 correctamente.`;
+        feedback.className = "feedback correct";
+      } else {
+        feedback.textContent = `Obtuviste ${score} de 4 respuestas correctas. Sigue practicando para mejorar.`;
+        feedback.className = "feedback incorrect";
+      }
+      feedback.style.display = "block";
+    });
+  </script>
+</body>
+</html>

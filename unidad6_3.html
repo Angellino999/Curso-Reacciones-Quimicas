@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>6.3 Simulacro de examen</title>
+</head>
+<body>
+  <h1>6.3 Simulacro de examen</h1>
+
+  <form id="simulacroForm">
+
+    <fieldset>
+      <legend>Pregunta 1</legend>
+      <p>¿Cuál es una evidencia de una reacción química?</p>
+      <label><input type="radio" name="p1" value="correcta" /> Cambio de color</label><br/>
+      <label><input type="radio" name="p1" value="incorrecta" /> Cambio de estado físico</label><br/>
+      <label><input type="radio" name="p1" value="incorrecta" /> Evaporación</label><br/>
+    </fieldset>
+
+    <fieldset>
+      <legend>Pregunta 2</legend>
+      <p>¿Qué ley se usa para balancear ecuaciones químicas?</p>
+      <label><input type="radio" name="p2" value="incorrecta" /> Ley de gravedad</label><br/>
+      <label><input type="radio" name="p2" value="correcta" /> Ley de conservación de la masa</label><br/>
+      <label><input type="radio" name="p2" value="incorrecta" /> Ley de movimiento</label><br/>
+    </fieldset>
+
+    <fieldset>
+      <legend>Pregunta 3</legend>
+      <p>¿Qué tipo de reacción es la combustión?</p>
+      <label><input type="radio" name="p3" value="incorrecta" /> Reacción endotérmica</label><br/>
+      <label><input type="radio" name="p3" value="correcta" /> Reacción exotérmica</label><br/>
+      <label><input type="radio" name="p3" value="incorrecta" /> Reacción de desplazamiento</label><br/>
+    </fieldset>
+
+    <fieldset>
+      <legend>Pregunta 4</legend>
+      <p>¿Cuál es la diferencia principal entre un cambio físico y uno químico?</p>
+      <label><input type="radio" name="p4" value="correcta" /> En el químico cambia la composición, en el físico no</label><br/>
+      <label><input type="radio" name="p4" value="incorrecta" /> En el físico cambia la composición, en el químico no</label><br/>
+      <label><input type="radio" name="p4" value="incorrecta" /> No hay diferencia</label><br/>
+    </fieldset>
+
+    <fieldset>
+      <legend>Pregunta 5</legend>
+      <p>¿Cuál es un ejemplo de reacción de desplazamiento simple?</p>
+      <label><input type="radio" name="p5" value="incorrecta" /> AB + CD → AC + BD</label><br/>
+      <label><input type="radio" name="p5" value="correcta" /> A + BC → AC + B</label><br/>
+      <label><input type="radio" name="p5" value="incorrecta" /> C + O2 → CO2</label><br/>
+    </fieldset>
+
+    <fieldset>
+      <legend>Pregunta 6</legend>
+      <p>¿Cuál método se utiliza para balancear ecuaciones químicas?</p>
+      <label><input type="radio" name="p6" value="incorrecta" /> Método de separación</label><br/>
+      <label><input type="radio" name="p6" value="correcta" /> Método de tanteo</label><br/>
+      <label><input type="radio" name="p6" value="incorrecta" /> Método de extracción</label><br/>
+    </fieldset>
+
+    <fieldset>
+      <legend>Pregunta 7</legend>
+      <p>¿Qué caracteriza una reacción ácido-base?</p>
+      <label><input type="radio" name="p7" value="correcta" /> Transferencia de protones (H+)</label><br/>
+      <label><input type="radio" name="p7" value="incorrecta" /> Transferencia de electrones</label><br/>
+      <label><input type="radio" name="p7" value="incorrecta" /> Formación de sales metálicas</label><br/>
+    </fieldset>
+
+    <fieldset>
+      <legend>Pregunta 8</legend>
+      <p>¿Qué ley relaciona la presión y temperatura de un gas a volumen constante?</p>
+      <label><input type="radio" name="p8" value="incorrecta" /> Ley de Boyle</label><br/>
+      <label><input type="radio" name="p8" value="correcta" /> Ley de Gay-Lussac</label><br/>
+      <label><input type="radio" name="p8" value="incorrecta" /> Ley de Charles</label><br/>
+    </fieldset>
+
+    <fieldset>
+      <legend>Pregunta 9</legend>
+      <p>¿Cuál es la característica principal del gas ideal?</p>
+      <label><input type="radio" name="p9" value="correcta" /> No tiene volumen ni fuerzas intermoleculares</label><br/>
+      <label><input type="radio" name="p9" value="incorrecta" /> Tiene volumen propio y fuerzas intermoleculares fuertes</label><br/>
+      <label><input type="radio" name="p9" value="incorrecta" /> Se comporta igual que un gas real</label><br/>
+    </fieldset>
+
+    <fieldset>
+      <legend>Pregunta 10</legend>
+      <p>Balancea la siguiente ecuación química: H₂ + O₂ → H₂O</p>
+      <label><input type="radio" name="p10" value="correcta" /> 2H₂ + O₂ → 2H₂O</label><br/>
+      <label><input type="radio" name="p10" value="incorrecta" /> H₂ + O₂ → H₂O</label><br/>
+      <label><input type="radio" name="p10" value="incorrecta" /> H₂ + 2O₂ → H₂O</label><br/>
+    </fieldset>
+
+    <button type="button" onclick="calcularResultado()">Enviar examen</button>
+  </form>
+
+  <div id="resultado" style="margin-top:20px; font-weight:bold; font-size:1.2em;"></div>
+
+  <a href='index.html'>← Volver al índice</a>
+
+  <audio id="audioCorrecto" src="Respuesta Correcta.mp3" preload="auto"></audio>
+  <audio id="audioIncorrecto" src="RESPUESTA INCORRECTA.mp3" preload="auto"></audio>
+
+  <script>
+    function calcularResultado() {
+      let score = 0;
+      const total = 10;
+      for(let i=1; i<=total; i++) {
+        const respuesta = document.querySelector('input[name=p'+i+']:checked');
+        if(respuesta && respuesta.value === 'correcta') score++;
+      }
+      const percent = (score / total) * 100;
+      const resultadoDiv = document.getElementById('resultado');
+      resultadoDiv.textContent = `Resultado: ${score} de ${total} correctas (${percent.toFixed(0)}%)`;
+
+      const audioCorrecto = document.getElementById('audioCorrecto');
+      const audioIncorrecto = document.getElementById('audioIncorrecto');
+
+      audioCorrecto.pause();
+      audioCorrecto.currentTime = 0;
+      audioIncorrecto.pause();
+      audioIncorrecto.currentTime = 0;
+
+      if (percent >= 70) {
+        resultadoDiv.style.color = 'green';
+        audioCorrecto.play();
+      } else {
+        resultadoDiv.style.color = 'red';
+        audioIncorrecto.play();
+      }
+    }
+  </script>
+</body>
+</html>

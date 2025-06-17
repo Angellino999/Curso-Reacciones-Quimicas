@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Examen Final de Química</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f4f7fa;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+    }
+    main {
+      background: white;
+      max-width: 800px;
+      width: 100%;
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #2c3e50;
+      letter-spacing: 1.2px;
+    }
+    fieldset {
+      border: 1.8px solid #3498db;
+      border-radius: 8px;
+      padding: 15px 25px;
+      margin-bottom: 20px;
+      transition: box-shadow 0.3s ease;
+    }
+    fieldset:hover {
+      box-shadow: 0 0 10px rgba(52,152,219,0.5);
+    }
+    legend {
+      font-weight: 700;
+      color: #2980b9;
+      font-size: 1.1rem;
+      padding: 0 10px;
+    }
+    p {
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    label {
+      display: block;
+      padding: 6px 0;
+      cursor: pointer;
+      font-weight: 500;
+      user-select: none;
+    }
+    input[type="radio"] {
+      margin-right: 12px;
+      accent-color: #2980b9;
+      cursor: pointer;
+    }
+    button {
+      background-color: #2980b9;
+      border: none;
+      color: white;
+      padding: 14px 25px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      display: block;
+      margin: 30px auto 0;
+      box-shadow: 0 5px 10px rgba(41,128,185,0.4);
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #1c5980;
+    }
+    #resultado {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      min-height: 1.8em;
+      user-select: none;
+    }
+    #resultado.aprobado {
+      color: #27ae60;
+    }
+    #resultado.reprobado {
+      color: #c0392b;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Examen Final de Química</h1>
+
+    <form id="examenForm">
+
+      <fieldset>
+        <legend>Pregunta 1</legend>
+        <p>¿Cuál es una evidencia común de una reacción química?</p>
+        <label><input type="radio" name="p1" value="correcta" /> Cambio de color</label>
+        <label><input type="radio" name="p1" value="incorrecta" /> Cambio de estado físico</label>
+        <label><input type="radio" name="p1" value="incorrecta" /> Evaporación</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Pregunta 2</legend>
+        <p>¿Qué ley se aplica para balancear ecuaciones químicas?</p>
+        <label><input type="radio" name="p2" value="incorrecta" /> Ley de gravedad</label>
+        <label><input type="radio" name="p2" value="correcta" /> Ley de conservación de la masa</label>
+        <label><input type="radio" name="p2" value="incorrecta" /> Ley de movimiento</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Pregunta 3</legend>
+        <p>¿Qué tipo de reacción química implica la combustión?</p>
+        <label><input type="radio" name="p3" value="incorrecta" /> Reacción endotérmica</label>
+        <label><input type="radio" name="p3" value="correcta" /> Reacción exotérmica</label>
+        <label><input type="radio" name="p3" value="incorrecta" /> Reacción de desplazamiento</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Pregunta 4</legend>
+        <p>¿Cuál es la diferencia entre cambio físico y químico?</p>
+        <label><input type="radio" name="p4" value="correcta" /> En el químico cambia la composición, en el físico no</label>
+        <label><input type="radio" name="p4" value="incorrecta" /> En el físico cambia la composición, en el químico no</label>
+        <label><input type="radio" name="p4" value="incorrecta" /> No hay diferencia</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Pregunta 5</legend>
+        <p>¿Cuál es un ejemplo típico de reacción de desplazamiento simple?</p>
+        <label><input type="radio" name="p5" value="incorrecta" /> AB + CD → AC + BD</label>
+        <label><input type="radio" name="p5" value="correcta" /> A + BC → AC + B</label>
+        <label><input type="radio" name="p5" value="incorrecta" /> C + O2 → CO2</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Pregunta 6</legend>
+        <p>¿Qué ocurre en una reacción de doble desplazamiento?</p>
+        <label><input type="radio" name="p6" value="correcta" /> Intercambio de iones entre dos compuestos</label>
+        <label><input type="radio" name="p6" value="incorrecta" /> Formación de óxidos</label>
+        <label><input type="radio" name="p6" value="incorrecta" /> Reacción ácido-base</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Pregunta 7</legend>
+        <p>¿Cuál es la característica principal de una reacción endotérmica?</p>
+        <label><input type="radio" name="p7" value="correcta" /> Absorbe calor</label>
+        <label><input type="radio" name="p7" value="incorrecta" /> Libera calor</label>
+        <label><input type="radio" name="p7" value="incorrecta" /> No hay transferencia de energía</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Pregunta 8</legend>
+        <p>¿Qué ley relaciona la presión y temperatura de un gas a volumen constante?</p>
+        <label><input type="radio" name="p8" value="incorrecta" /> Ley de Boyle</label>
+        <label><input type="radio" name="p8" value="correcta" /> Ley de Gay-Lussac</label>
+        <label><input type="radio" name="p8" value="incorrecta" /> Ley de Charles</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Pregunta 9</legend>
+        <p>Balancea la ecuación: H₂ + O₂ → H₂O</p>
+        <label><input type="radio" name="p9" value="correcta" /> 2H₂ + O₂ → 2H₂O</label>
+        <label><input type="radio" name="p9" value="incorrecta" /> H₂ + O₂ → H₂O₂</label>
+        <label><input type="radio" name="p9" value="incorrecta" /> H₂ + 2O₂ → 2H₂O</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Pregunta 10</legend>
+        <p>¿Qué es una reacción ácido-base?</p>
+        <label><input type="radio" name="p10" value="correcta" /> Reacción entre un ácido y una base que produce sal y agua</label>
+        <label><input type="radio" name="p10" value="incorrecta" /> Reacción de oxidación</label>
+        <label><input type="radio" name="p10" value="incorrecta" /> Reacción endotérmica</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Pregunta 11</legend>
+        <p>¿Cuál de los siguientes gases se considera ideal en condiciones estándar?</p>
+        <label><input type="radio" name="p11" value="correcta" /> Helio (He)</label>
+        <label><input type="radio" name="p11" value="incorrecta" /> Dióxido de carbono (CO₂)</label>
+        <label><input type="radio" name="p11" value="incorrecta" /> Vapor de agua (H₂O)</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Pregunta 12</legend>
+        <p>¿Qué representa el coeficiente en una ecuación química balanceada?</p>
+        <label><input type="radio" name="p12" value="correcta" /> Número de moléculas o moles</label>
+        <label><input type="radio" name="p12" value="incorrecta" /> Número de átomos individuales</label>
+        <label><input type="radio" name="p12" value="incorrecta" /> Carga eléctrica</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Pregunta 13</legend>
+        <p>¿Qué significa que una reacción sea exotérmica?</p>
+        <label><input type="radio" name="p13" value="correcta" /> Libera energía en forma de calor</label>
+        <label><input type="radio" name="p13" value="incorrecta" /> Absorbe energía</label>
+        <label><input type="radio" name="p13" value="incorrecta" /> No hay cambio de energía</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Pregunta 14</legend>
+        <p>¿Cuál es el producto principal de la combustión completa del metano (CH₄)?</p>
+        <label><input type="radio" name="p14" value="correcta" /> CO₂ y H₂O</label>
+        <label><input type="radio" name="p14" value="incorrecta" /> CO y H₂</label>
+        <label><input type="radio" name="p14" value="incorrecta" /> CH₃OH</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Pregunta 15</legend>
+        <p>¿Qué se cumple según la Ley de Boyle?</p>
+        <label><input type="radio" name="p15" value="correcta" /> El volumen de un gas es inversamente proporcional a la presión</label>
+        <label><input type="radio" name="p15" value="incorrecta" /> El volumen de un gas es directamente proporcional a la temperatura</label>
+        <label><input type="radio" name="p15" value="incorrecta" /> La presión es constante</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Pregunta 16</legend>
+        <p>¿Cuál es la masa de agua (H₂O) producida al reaccionar 18 g de hidrógeno con oxígeno?</p>
+        <label><input type="radio" name="p16" value="correcta" /> 144 g</label>
+        <label><input type="radio" name="p16" value="incorrecta" /> 36 g</label>
+        <label><input type="radio" name="p16" value="incorrecta" /> 18 g</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Pregunta 17</legend>
+        <p>¿Qué nombre recibe la sustancia que aumenta la velocidad de una reacción sin consumirse?</p>
+        <label><input type="radio" name="p17" value="correcta" /> Catalizador</label>
+        <label><input type="radio" name="p17" value="incorrecta" /> Reactivo</label>
+        <label><input type="radio" name="p17" value="incorrecta" /> Producto</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Pregunta 18</legend>
+        <p>¿Qué es la energía de activación?</p>
+        <label><input type="radio" name="p18" value="correcta" /> Energía mínima necesaria para iniciar una reacción</label>
+        <label><input type="radio" name="p18" value="incorrecta" /> Energía liberada durante la reacción</label>
+        <label><input type="radio" name="p18" value="incorrecta" /> Energía absorbida al final de la reacción</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Pregunta 19</legend>
+        <p>¿Cuál de las siguientes opciones representa una reacción de síntesis?</p>
+        <label><input type="radio" name="p19" value="correcta" /> A + B → AB</label>
+        <label><input type="radio" name="p19" value="incorrecta" /> AB → A + B</label>
+        <label><input type="radio" name="p19" value="incorrecta" /> AB + CD → AC + BD</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Pregunta 20</legend>
+        <p>¿Qué ocurre con los electrones en una reacción de oxidación?</p>
+        <label><input type="radio" name="p20" value="correcta" /> Se pierden electrones</label>
+        <label><input type="radio" name="p20" value="incorrecta" /> Se ganan electrones</label>
+        <label><input type="radio" name="p20" value="incorrecta" /> No hay cambio en electrones</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Pregunta 21</legend>
+        <p>¿Cuál es la fórmula del ácido sulfúrico?</p>
+        <label><input type="radio" name="p21" value="correcta" /> H₂SO₄</label>
+        <label><input type="radio" name="p21" value="incorrecta" /> HCl</label>
+        <label><input type="radio" name="p21" value="incorrecta" /> HNO₃</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Pregunta 22</legend>
+        <p>¿Qué es un ion?</p>
+        <label><input type="radio" name="p22" value="correcta" /> Átomo con carga eléctrica</label>
+        <label><input type="radio" name="p22" value="incorrecta" /> Molécula neutra</label>
+        <label><input type="radio" name="p22" value="incorrecta" /> Átomo sin carga</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Pregunta 23</legend>
+        <p>¿Cuál es la unidad para medir la cantidad de sustancia?</p>
+        <label><input type="radio" name="p23" value="correcta" /> Mol</label>
+        <label><input type="radio" name="p23" value="incorrecta" /> Gramo</label>
+        <label><input type="radio" name="p23" value="incorrecta" /> Litro</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Pregunta 24</legend>
+        <p>¿Qué tipo de enlace une a los átomos en una molécula de agua?</p>
+        <label><input type="radio" name="p24" value="correcta" /> Enlace covalente</label>
+        <label><input type="radio" name="p24" value="incorrecta" /> Enlace iónico</label>
+        <label><input type="radio" name="p24" value="incorrecta" /> Enlace metálico</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Pregunta 25</legend>
+        <p>¿Qué representa el pH de una solución?</p>
+        <label><input type="radio" name="p25" value="correcta" /> La acidez o alcalinidad</label>
+        <label><input type="radio" name="p25" value="incorrecta" /> La concentración de sales</label>
+        <label><input type="radio" name="p25" value="incorrecta" /> La temperatura</label>
+      </fieldset>
+
+      <button type="button" onclick="calcularResultado()">Enviar examen</button>
+    </form>
+
+    <div id="resultado"></div>
+
+    <audio id="audioCorrecto" src="Respuesta Correcta.mp3" preload="auto"></audio>
+    <audio id="audioIncorrecto" src="RESPUESTA INCORRECTA.mp3" preload="auto"></audio>
+  </main>
+
+  <script>
+    function calcularResultado() {
+      const total = 25;
+      let score = 0;
+      for(let i = 1; i <= total; i++) {
+        const respuesta = document.querySelector(`input[name=p${i}]:checked`);
+        if(respuesta && respuesta.value === 'correcta') score++;
+      }
+      const percent = (score / total) * 100;
+      const resultadoDiv = document.getElementById('resultado');
+      resultadoDiv.textContent = `Resultado: ${score} de ${total} correctas (${percent.toFixed(0)}%)`;
+
+      const audioCorrecto = document.getElementById('audioCorrecto');
+      const audioIncorrecto = document.getElementById('audioIncorrecto');
+      audioCorrecto.pause();
+      audioCorrecto.currentTime = 0;
+      audioIncorrecto.pause();
+      audioIncorrecto.currentTime = 0;
+
+      if (percent >= 70) {
+        resultadoDiv.classList.add('aprobado');
+        resultadoDiv.classList.remove('reprobado');
+        audioCorrecto.play();
+      } else {
+        resultadoDiv.classList.add('reprobado');
+        resultadoDiv.classList.remove('aprobado');
+        audioIncorrecto.play();
+      }
+    }
+  </script>
+</body>
+</html>

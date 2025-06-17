@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1.2 Evidencias de una reacción química</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    video {
+      max-width: 100%;
+      display: block;
+      margin: 20px auto;
+      border-radius: 8px;
+    }
+
+    .feedback {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>1.2 Evidencias de una Reacción Química</h1>
+
+    <section class="content">
+      <p>Una reacción química puede ser detectada mediante varias evidencias visibles o perceptibles. Estas señales indican que ha ocurrido una transformación de sustancias en nuevas sustancias.</p>
+
+      <h2>Principales Evidencias</h2>
+      <ul>
+        <li><strong>Cambio de color:</strong> Aparece un color nuevo sin mezclar pigmentos.</li>
+        <li><strong>Formación de un gas:</strong> Se observan burbujas sin calentamiento visible.</li>
+        <li><strong>Formación de un precipitado:</strong> Aparece un sólido en una solución.</li>
+        <li><strong>Cambio de temperatura:</strong> La reacción libera o absorbe calor.</li>
+        <li><strong>Emisión de luz:</strong> Algunas reacciones químicas emiten luz (ej. combustión).</li>
+      </ul>
+
+      <h2>Ejemplos</h2>
+      <ul>
+        <li>Vinagre + bicarbonato de sodio → burbujeo (liberación de gas)</li>
+        <li>Agua de cal + CO₂ → formación de un precipitado blanco</li>
+        <li>Oxidación del hierro → cambio de color (óxido rojizo)</li>
+      </ul>
+
+      <h2>Video de apoyo</h2>
+      <video controls>
+        <source src="video 1.2.mp4" type="video/mp4">
+        Tu navegador no soporta la reproducción de video.
+      </video>
+
+      <h2>Ejercicio Interactivo</h2>
+      <p><strong>Selecciona cuál de las siguientes opciones representa una evidencia de reacción química:</strong></p>
+
+      <form id="quizForm">
+        <div class="question">
+          <label>
+            <input type="radio" name="evidencia" value="correcta" />
+            Formación de burbujas al mezclar dos soluciones
+          </label>
+        </div>
+        <div class="question">
+          <label>
+            <input type="radio" name="evidencia" value="incorrecta1" />
+            Derretir hielo
+          </label>
+        </div>
+        <div class="question">
+          <label>
+            <input type="radio" name="evidencia" value="incorrecta2" />
+            Disolver azúcar en agua
+          </label>
+        </div>
+        <button type="submit">Verificar respuesta</button>
+      </form>
+
+      <div id="resultado" class="feedback"></div>
+    </section>
+
+    <a href="index.html" class="btn-back">← Volver al índice</a>
+  </div>
+
+  <audio id="audio-correcto" src="Respuesta Correcta.mp3" preload="auto"></audio>
+  <audio id="audio-incorrecto" src="RESPUESTA INCORRECTA.mp3" preload="auto"></audio>
+
+  <script>
+    const form = document.getElementById('quizForm');
+    const resultado = document.getElementById('resultado');
+    const audioCorrecto = document.getElementById('audio-correcto');
+    const audioIncorrecto = document.getElementById('audio-incorrecto');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const respuesta = document.querySelector('input[name="evidencia"]:checked');
+      if (!respuesta) return;
+
+      if (respuesta.value === 'correcta') {
+        resultado.textContent = "¡Correcto! Esa es una evidencia clara de una reacción química.";
+        resultado.style.color = "green";
+        audioIncorrecto.pause();
+        audioIncorrecto.currentTime = 0;
+        audioCorrecto.play();
+      } else {
+        resultado.textContent = "Incorrecto. Eso no indica una reacción química.";
+        resultado.style.color = "red";
+        audioCorrecto.pause();
+        audioCorrecto.currentTime = 0;
+        audioIncorrecto.play();
+      }
+    });
+  </script>
+</body>
+</html>

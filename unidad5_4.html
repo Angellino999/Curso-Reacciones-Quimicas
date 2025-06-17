@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>5.4 Ley general de los gases - Curso de Reacciones Químicas</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h1>Unidad 5.4 - Ley general de los gases</h1>
+
+  <p>
+    La <strong>Ley general de los gases</strong> combina tres leyes individuales: la de Boyle, la de Charles y la de Gay-Lussac. Esta ley describe el comportamiento de un gas ideal relacionando su presión, volumen y temperatura.
+  </p>
+
+  <p><strong>Fórmula:</strong><br />
+    (P1 × V1) / T1 = (P2 × V2) / T2
+  </p>
+
+  <p>
+    Donde:
+    <ul>
+      <li><strong>P</strong>: presión del gas</li>
+      <li><strong>V</strong>: volumen del gas</li>
+      <li><strong>T</strong>: temperatura del gas en Kelvin</li>
+    </ul>
+  </p>
+
+  <div class="example">
+    <strong>Ejemplo:</strong><br />
+    Un gas ocupa un volumen de 4 L a una presión de 1 atm y temperatura de 300 K. ¿Cuál será su volumen a 2 atm y 400 K?<br />
+    Aplicamos la fórmula:<br />
+    (1 × 4)/300 = (2 × V2)/400<br />
+    V2 = (4 × 400)/(2 × 300) = 2.67 L
+  </div>
+  <h2>Video explicativo</h2>
+    <video controls width="700" style="display: block; margin: 0 auto 20px;">
+    <source src="5.4.mp4" type="video/mp4" />
+    Tu navegador no soporta la etiqueta de video.
+    </video>
+  <section class="exercise-section">
+    <h2>Ejercicios cerrados</h2>
+    <form id="quizForm">
+
+      <label>1. ¿Qué variables relaciona la ley general de los gases?</label>
+      <div class="options">
+        <label><input type="radio" name="q1" value="a"> Presión, volumen y temperatura</label>
+        <label><input type="radio" name="q1" value="b"> Masa, volumen y densidad</label>
+        <label><input type="radio" name="q1" value="c"> Presión, masa y tiempo</label>
+      </div>
+
+      <label>2. Si un gas tiene P = 2 atm, V = 3 L y T = 300 K, ¿cuál será su presión si el volumen aumenta a 6 L y la temperatura a 600 K?</label>
+      <div class="options">
+        <label><input type="radio" name="q2" value="a"> 1 atm</label>
+        <label><input type="radio" name="q2" value="b"> 2 atm</label>
+        <label><input type="radio" name="q2" value="c"> 0.5 atm</label>
+      </div>
+
+      <label>3. ¿Qué unidad se debe usar para la temperatura en la fórmula de la ley general de los gases?</label>
+      <div class="options">
+        <label><input type="radio" name="q3" value="a"> Grados Celsius</label>
+        <label><input type="radio" name="q3" value="b"> Kelvin</label>
+        <label><input type="radio" name="q3" value="c"> Fahrenheit</label>
+      </div>
+
+      <button type="button" id="submitBtn">Revisar respuestas</button>
+    </form>
+
+    <div id="feedback" class="feedback"></div>
+  </section>
+
+  <footer>
+    <a href="index.html" class="back-link">← Volver al índice</a>
+  </footer>
+
+  <audio id="correctSound" src="Respuesta Correcta.mp3" preload="auto"></audio>
+  <audio id="incorrectSound" src="RESPUESTA INCORRECTA.mp3" preload="auto"></audio>
+
+  <script>
+    const submitBtn = document.getElementById('submitBtn');
+    const feedback = document.getElementById('feedback');
+    const correctSound = document.getElementById('correctSound');
+    const incorrectSound = document.getElementById('incorrectSound');
+
+    submitBtn.addEventListener('click', () => {
+      const q1 = document.querySelector('input[name="q1"]:checked');
+      const q2 = document.querySelector('input[name="q2"]:checked');
+      const q3 = document.querySelector('input[name="q3"]:checked');
+
+      if (!q1 || !q2 || !q3) {
+        feedback.textContent = "Por favor, responde todas las preguntas.";
+        feedback.className = "feedback incorrect";
+        feedback.style.display = "block";
+        incorrectSound.play();
+        return;
+      }
+
+      let score = 0;
+      if (q1.value === 'a') score++;
+      if (q2.value === 'a') score++;
+      if (q3.value === 'b') score++;
+
+      if (score === 3) {
+        feedback.textContent = `¡Muy bien! Respondiste todas correctamente.`;
+        feedback.className = "feedback correct";
+        correctSound.play();
+      } else {
+        feedback.textContent = `Obtuviste ${score} de 3 respuestas correctas.`;
+        feedback.className = "feedback incorrect";
+        incorrectSound.play();
+      }
+      feedback.style.display = "block";
+    });
+  </script>
+</body>
+</html>

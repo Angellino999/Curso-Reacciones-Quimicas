@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>1.4 Ecuaciones químicas</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .exercise {
+      margin: 20px 0;
+      padding: 15px;
+      background: #e8f5e9;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,128,0,0.2);
+    }
+    .feedback {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    input[type="text"] {
+      width: 120px;
+      padding: 5px;
+      border: 1.5px solid #4caf50;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+    button {
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1em;
+      margin-top: 10px;
+    }
+    button:hover {
+      background-color: #1b5e20;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>1.4 Ecuaciones químicas</h1>
+
+    <section class="content">
+      <p>Las ecuaciones químicas son la representación simbólica de una reacción química. Muestran los reactivos, los productos y la cantidad de cada sustancia involucrada.</p>
+
+      <h2>Elementos de una ecuación química</h2>
+      <ul>
+        <li><strong>Reactivos:</strong> Sustancias que reaccionan.</li>
+        <li><strong>Productos:</strong> Sustancias que se forman.</li>
+        <li><strong>Coeficientes:</strong> Números que indican la cantidad de moléculas o moles.</li>
+        <li><strong>Subíndices:</strong> Indican la cantidad de átomos en una molécula.</li>
+        <li><strong>Flecha (→):</strong> Señala el sentido de la reacción.</li>
+      </ul>
+
+      <h2>Ejemplo</h2>
+      <p>La reacción entre hidrógeno y oxígeno para formar agua:</p>
+      <pre>2 H<sub>2</sub> + O<sub>2</sub> → 2 H<sub>2</sub>O</pre>
+
+      <p>Esto significa:</p>
+      <ul>
+        <li>2 moléculas de hidrógeno reaccionan con 1 molécula de oxígeno</li>
+        <li>Se forman 2 moléculas de agua</li>
+      </ul>
+
+      <h2>Video explicativo</h2>
+      <video controls>
+        <source src="1.4.mp4" type="video/mp4">
+        Tu navegador no soporta el elemento de video.
+      </video>
+
+      <h2>Ejercicio 1: Identifica las partes de la ecuación</h2>
+      <p>En la siguiente ecuación, selecciona qué representa cada elemento:</p>
+      <pre>CH<sub>4</sub> + 2 O<sub>2</sub> → CO<sub>2</sub> + 2 H<sub>2</sub>O</pre>
+
+      <form id="exercise1">
+        <label>¿Qué es <code>CH<sub>4</sub></code>? </label>
+        <select name="q1" required>
+          <option value="">Selecciona...</option>
+          <option value="reactivo">Reactivo</option>
+          <option value="producto">Producto</option>
+          <option value="coeficiente">Coeficiente</option>
+        </select>
+        <br /><br />
+        <label>¿Qué indica el número 2 delante de <code>O<sub>2</sub></code>? </label>
+        <select name="q2" required>
+          <option value="">Selecciona...</option>
+          <option value="moléculas">Número de moléculas</option>
+          <option value="átomos">Número de átomos</option>
+          <option value="productos">Producto</option>
+        </select>
+        <br /><br />
+        <button type="submit">Revisar respuestas</button>
+        <div id="feedback1" class="feedback"></div>
+      </form>
+
+      <h2>Ejercicio 2: Completa la ecuación química</h2>
+      <p>Llena los coeficientes correctos para balancear esta ecuación:</p>
+      <pre>__ H<sub>2</sub> + __ O<sub>2</sub> → __ H<sub>2</sub>O</pre>
+
+      <form id="exercise2">
+        <label>Coeficiente para H<sub>2</sub>: <input type="text" name="h2" required /></label><br /><br />
+        <label>Coeficiente para O<sub>2</sub>: <input type="text" name="o2" required /></label><br /><br />
+        <label>Coeficiente para H<sub>2</sub>O: <input type="text" name="h2o" required /></label><br /><br />
+        <button type="submit">Verificar</button>
+        <div id="feedback2" class="feedback"></div>
+      </form>
+
+      <h2>Ejercicio 3: Preguntas de opción múltiple</h2>
+      <form id="exercise3">
+        <p>1. ¿Qué indica el subíndice en una fórmula química?</p>
+        <label><input type="radio" name="q3_1" value="a" required /> Número de moléculas</label><br />
+        <label><input type="radio" name="q3_1" value="b" /> Número de átomos en una molécula</label><br />
+        <label><input type="radio" name="q3_1" value="c" /> Cantidad de reactivos</label>
+
+        <p>2. ¿Qué representa la ecuación química?</p>
+        <label><input type="radio" name="q3_2" value="a" required /> Una transformación de sustancias</label><br />
+        <label><input type="radio" name="q3_2" value="b" /> Una fórmula para calcular masa</label><br />
+        <label><input type="radio" name="q3_2" value="c" /> Un cambio físico</label>
+
+        <br />
+        <button type="submit">Comprobar respuestas</button>
+        <div id="feedback3" class="feedback"></div>
+      </form>
+    </section>
+
+    <a href="index.html" class="btn-back">← Volver al índice</a>
+  </div>
+
+  <audio id="audio-correcto" src="Respuesta Correcta.mp3" preload="auto"></audio>
+  <audio id="audio-incorrecto" src="RESPUESTA INCORRECTA.mp3" preload="auto"></audio>
+
+  <script>
+    const audioCorrecto = document.getElementById('audio-correcto');
+    const audioIncorrecto = document.getElementById('audio-incorrecto');
+
+    // Ejercicio 1
+    document.getElementById('exercise1').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const q1 = this.q1.value;
+      const q2 = this.q2.value;
+      let correct = 0;
+      let total = 2;
+
+      if(q1 === 'reactivo') correct++;
+      if(q2 === 'moléculas') correct++;
+
+      const feedback = document.getElementById('feedback1');
+      if(correct === total) {
+        feedback.textContent = '¡Muy bien! Todas las respuestas son correctas.';
+        feedback.style.color = 'green';
+        audioCorrecto.play();
+      } else {
+        feedback.textContent = `Respuestas correctas: ${correct} de ${total}. Intenta de nuevo.`;
+        feedback.style.color = 'red';
+        audioIncorrecto.play();
+      }
+    });
+
+    // Ejercicio 2
+    document.getElementById('exercise2').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const h2 = this.h2.value.trim();
+      const o2 = this.o2.value.trim();
+      const h2o = this.h2o.value.trim();
+
+      let correct = 0;
+      let total = 3;
+
+      if(h2 === '2') correct++;
+      if(o2 === '1') correct++;
+      if(h2o === '2') correct++;
+
+      const feedback = document.getElementById('feedback2');
+      if(correct === total) {
+        feedback.textContent = '¡Perfecto! La ecuación está correctamente balanceada.';
+        feedback.style.color = 'green';
+        audioCorrecto.play();
+      } else {
+        feedback.textContent = `Has acertado ${correct} de ${total}. Revisa los coeficientes y vuelve a intentar.`;
+        feedback.style.color = 'red';
+        audioIncorrecto.play();
+      }
+    });
+
+    // Ejercicio 3
+    document.getElementById('exercise3').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const q3_1 = this.q3_1.value;
+      const q3_2 = this.q3_2.value;
+      let correct = 0;
+      let total = 2;
+
+      if(q3_1 === 'b') correct++;
+      if(q3_2 === 'a') correct++;
+
+      const feedback = document.getElementById('feedback3');
+      if(correct === total) {
+        feedback.textContent = '¡Excelente! Todas las respuestas son correctas.';
+        feedback.style.color = 'green';
+        audioCorrecto.play();
+      } else {
+        feedback.textContent = `Respuestas correctas: ${correct} de ${total}. Sigue practicando.`;
+        feedback.style.color = 'red';
+        audioIncorrecto.play();
+      }
+    });
+  </script>
+</body>
+</html>

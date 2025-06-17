@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>5.6 Características del gas ideal y real</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="contenido">
+    <h1>5.6 Características del gas ideal y real</h1>
+
+    <section>
+      <h2>Gas Ideal</h2>
+      <p>
+        El gas ideal es un modelo teórico que se utiliza para describir el comportamiento de los gases. Se basa en ciertas suposiciones simplificadas:
+      </p>
+      <ul>
+        <li>Las moléculas del gas no tienen volumen propio.</li>
+        <li>No hay fuerzas de atracción o repulsión entre las moléculas.</li>
+        <li>Las colisiones entre moléculas son perfectamente elásticas.</li>
+        <li>Las moléculas están en movimiento constante y aleatorio.</li>
+      </ul>
+      <p>La ecuación de estado del gas ideal es: <strong>PV = nRT</strong></p>
+    </section>
+
+    <section>
+      <h2>Gas Real</h2>
+      <p>
+        Los gases reales difieren de los gases ideales porque sí tienen volumen y existen fuerzas intermoleculares. Estas diferencias se notan sobre todo en condiciones de alta presión o baja temperatura.
+      </p>
+      <ul>
+        <li>Las moléculas ocupan espacio físico.</li>
+        <li>Existen fuerzas de atracción y repulsión entre moléculas.</li>
+        <li>El comportamiento puede desviarse significativamente del modelo ideal.</li>
+      </ul>
+      <p>La ecuación de Van der Waals es una forma de ajustar el modelo del gas ideal para representar mejor el comportamiento real:</p>
+      <p><strong>(P + a(n/V)<sup>2</sup>)(V - nb) = nRT</strong></p>
+    </section>
+
+    <section>
+      <h2>Ejemplo</h2>
+      <p>
+        Al comprimir un gas a alta presión en un recipiente pequeño, las moléculas están tan juntas que las fuerzas de atracción se vuelven importantes. Aquí es donde el modelo de gas ideal ya no es suficiente.
+      </p>
+    </section>
+
+    <section>
+      <h2>Ejercicio interactivo</h2>
+      <form id="quiz-form">
+        <p><strong>1. ¿Cuál de las siguientes afirmaciones describe correctamente un gas ideal?</strong></p>
+        <label><input type="radio" name="q1" value="a"> Las moléculas tienen volumen propio.</label><br />
+        <label><input type="radio" name="q1" value="b"> Hay fuerzas intermoleculares significativas.</label><br />
+        <label><input type="radio" name="q1" value="c"> Las moléculas no tienen volumen propio ni fuerzas entre ellas.</label><br />
+
+        <p><strong>2. ¿Qué ecuación representa un gas real con mayor precisión?</strong></p>
+        <label><input type="radio" name="q2" value="a"> PV = nRT</label><br />
+        <label><input type="radio" name="q2" value="b"> (P + a(n/V)<sup>2</sup>)(V - nb) = nRT</label><br />
+        <label><input type="radio" name="q2" value="c"> V/T = constante</label><br />
+
+        <br />
+        <button type="submit">Revisar respuestas</button>
+        <div id="resultado"></div>
+      </form>
+    </section>
+  </main>
+
+  <audio id="correcto" src="Respuesta Correcta.mp3"></audio>
+  <audio id="incorrecto" src="RESPUESTA INCORRECTA.mp3"></audio>
+
+  <script>
+    const form = document.getElementById('quiz-form');
+    const resultado = document.getElementById('resultado');
+    const correcto = document.getElementById('correcto');
+    const incorrecto = document.getElementById('incorrecto');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      let score = 0;
+
+      if (form.q1.value === 'c') score++;
+      if (form.q2.value === 'b') score++;
+
+      resultado.innerHTML = `<p>Respuestas correctas: ${score}/2</p>`;
+
+      if (score === 2) {
+        correcto.play();
+        resultado.innerHTML += '<p><strong>¡Excelente trabajo!</strong></p>';
+      } else {
+        incorrecto.play();
+        resultado.innerHTML += '<p><strong>Intenta revisar los conceptos de nuevo.</strong></p>';
+      }
+    });
+  </script>
+</body>
+</html>

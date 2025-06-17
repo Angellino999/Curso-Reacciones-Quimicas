@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>1.1 ¿Qué es una reacción química?</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .resultado {
+      margin-top: 8px;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: 600;
+      display: none;
+    }
+    .correcto {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .incorrecto {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+  </style>
+</head>
+<body>
+  <h1>1.1 ¿Qué es una reacción química?</h1>
+
+  <p>Una <strong>reacción química</strong> es un proceso en el cual una o más sustancias llamadas <em>reactivos</em> se transforman en una o más sustancias nuevas llamadas <em>productos</em>. Durante este proceso, los enlaces químicos en las moléculas de los reactivos se rompen y se forman nuevos enlaces para crear productos diferentes.</p>
+
+  <h2>Características principales</h2>
+  <ul>
+    <li>Involucra cambios en la composición química de las sustancias.</li>
+    <li>Se pueden liberar o absorber energía.</li>
+    <li>Los átomos se reorganizan pero no se crean ni destruyen (ley de conservación de la masa).</li>
+    <li>Suelen ir acompañadas de cambios de color, temperatura, formación de gases o precipitados.</li>
+  </ul>
+
+  <h2>Ejemplos de reacciones químicas</h2>
+  <p><strong>Ejemplo 1:</strong> Combustión del metano</p>
+  <pre>CH₄ + 2 O₂ → CO₂ + 2 H₂O</pre>
+  <p>El metano reacciona con el oxígeno para formar dióxido de carbono y agua.</p>
+
+  <p><strong>Ejemplo 2:</strong> Reacción ácido-base</p>
+  <pre>HCl + NaOH → NaCl + H₂O</pre>
+  <p>El ácido clorhídrico reacciona con hidróxido de sodio formando cloruro de sodio y agua.</p>
+
+  <h2>Video de apoyo</h2>
+  <video controls width="640" style="max-width: 100%; border-radius: 8px; display: block; margin: 20px auto;">
+    <source src="video 1.1.mp4" type="video/mp4">
+    Tu navegador no soporta la reproducción de video.
+  </video>
+
+  <h2>Ejercicios</h2>
+
+  <h3>Ejercicio 1: ¿Qué es una reacción química?</h3>
+  <p>Selecciona la opción que mejor define una reacción química:</p>
+  <form id="ej1">
+    <label><input type="radio" name="respuesta1" value="incorrecta" /> Un cambio en el estado físico de una sustancia</label><br/>
+    <label><input type="radio" name="respuesta1" value="correcta" /> Un proceso en el que sustancias cambian su composición química</label><br/>
+    <label><input type="radio" name="respuesta1" value="incorrecta" /> Un proceso que no implica cambios en los enlaces químicos</label><br/>
+    <button type="button" onclick="verificarEj1()">Verificar</button>
+    <div id="resultado1" class="resultado"></div>
+  </form>
+
+  <h3>Ejercicio 2: Identifica el producto</h3>
+  <p>En la reacción química <em>2 H₂ + O₂ → ?</em>, ¿cuál es el producto formado?</p>
+  <form id="ej2">
+    <input type="text" id="producto" placeholder="Escribe el producto químico" />
+    <button type="button" onclick="verificarEj2()">Verificar</button>
+    <div id="resultado2" class="resultado"></div>
+  </form>
+
+  <h3>Ejercicio 3: Observa la reacción</h3>
+  <p>Si mezclas vinagre (ácido acético) con bicarbonato de sodio, se observa formación de burbujas. ¿Qué indica esto?</p>
+  <form id="ej3">
+    <label><input type="radio" name="respuesta3" value="correcta" /> Que está ocurriendo una reacción química con formación de gas</label><br/>
+    <label><input type="radio" name="respuesta3" value="incorrecta" /> Que sólo hay un cambio físico</label><br/>
+    <label><input type="radio" name="respuesta3" value="incorrecta" /> Que el vinagre se evaporó</label><br/>
+    <button type="button" onclick="verificarEj3()">Verificar</button>
+    <div id="resultado3" class="resultado"></div>
+  </form>
+
+  <!-- Audios -->
+  <audio id="audioCorrecto" src="Respuesta Correcta.mp3" preload="auto"></audio>
+  <audio id="audioIncorrecto" src="RESPUESTA INCORRECTA.mp3" preload="auto"></audio>
+
+  <script>
+    function reproducirSonido(correcto) {
+      const audioCorrecto = document.getElementById('audioCorrecto');
+      const audioIncorrecto = document.getElementById('audioIncorrecto');
+      if (correcto) {
+        audioIncorrecto.pause();
+        audioIncorrecto.currentTime = 0;
+        audioCorrecto.play();
+      } else {
+        audioCorrecto.pause();
+        audioCorrecto.currentTime = 0;
+        audioIncorrecto.play();
+      }
+    }
+
+    function mostrarResultado(id, correcto, mensaje) {
+      const div = document.getElementById(id);
+      div.style.display = 'block';
+      if (correcto) {
+        div.classList.remove('incorrecto');
+        div.classList.add('correcto');
+      } else {
+        div.classList.remove('correcto');
+        div.classList.add('incorrecto');
+      }
+      div.textContent = mensaje;
+      reproducirSonido(correcto);
+    }
+
+    function verificarEj1() {
+      const opciones = document.getElementsByName('respuesta1');
+      let seleccionado = null;
+      for (const op of opciones) {
+        if (op.checked) {
+          seleccionado = op.value;
+          break;
+        }
+      }
+      if (seleccionado === null) {
+        mostrarResultado('resultado1', false, 'Por favor, selecciona una opción.');
+        return;
+      }
+      if (seleccionado === 'correcta') {
+        mostrarResultado('resultado1', true, '¡Correcto! Una reacción química implica cambios en la composición química.');
+      } else {
+        mostrarResultado('resultado1', false, 'Incorrecto. Revisa el concepto de reacción química.');
+      }
+    }
+
+    function verificarEj2() {
+      const respuesta = document.getElementById('producto').value.trim().toLowerCase();
+      if (!respuesta) {
+        mostrarResultado('resultado2', false, 'Por favor, escribe el producto.');
+        return;
+      }
+      if (respuesta === 'h2o' || respuesta === 'agua') {
+        mostrarResultado('resultado2', true, '¡Correcto! El producto es agua (H₂O).');
+      } else {
+        mostrarResultado('resultado2', false, 'Incorrecto. El producto formado es agua (H₂O).');
+      }
+    }
+
+    function verificarEj3() {
+      const opciones = document.getElementsByName('respuesta3');
+      let seleccionado = null;
+      for (const op of opciones) {
+        if (op.checked) {
+          seleccionado = op.value;
+          break;
+        }
+      }
+      if (seleccionado === null) {
+        mostrarResultado('resultado3', false, 'Por favor, selecciona una opción.');
+        return;
+      }
+      if (seleccionado === 'correcta') {
+        mostrarResultado('resultado3', true, '¡Correcto! La formación de burbujas indica producción de gas y por tanto una reacción química.');
+      } else {
+        mostrarResultado('resultado3', false, 'Incorrecto. La formación de burbujas indica un cambio químico, no físico.');
+      }
+    }
+  </script>
+
+  <a href="index.html">← Volver al índice</a>
+</body>
+</html>
